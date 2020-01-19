@@ -1,0 +1,26 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 2
+    },
+    {
+      " {\r\n      \"id\": 1,\r\n      \"title\": \"Selenium with C\",\r\n      \"author\": \"George BB\"\r\n    },\r\n    {\r\n      \"id\": 2,\r\n      \"title\": \"Appium\",\r\n      \"author\": \"George AA\"\r\n    },\r\n    {\r\n      \"id\": 3\r\n    }": "",
+      "id": 3
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
