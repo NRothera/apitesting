@@ -24,7 +24,7 @@ namespace APITesting.Utilities
             return obs[responseObject].ToString();
         }
 
-        public static async Task<IRestResponse<T>> ExecuteAsyncRequest<T>(this RestClient client, IRestRequest request) where T : class, new()
+        public static async Task<IRestResponse<T>> ExecuteAsyncsRequest<T>(this RestClient client, IRestRequest request) where T : class, new()
         {
             var taskCompletionSource = new TaskCompletionSource<IRestResponse<T>>();
 

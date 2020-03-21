@@ -1,4 +1,6 @@
-﻿using System;
+﻿using APITesting.Model;
+using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -11,18 +13,27 @@ namespace APITesting.Base
     [Binding]
     public class BaseTest
     {
-        private Settings _settings;
-        
-        public BaseTest(Settings settings)
-        {
-            _settings = settings;
-        }
+        public static Uri BaseUrl { get; set; }
+        public static IRestResponse<Posts> Response { get; set; }
+        public static IRestRequest Request { get; set; }
+        public static RestClient RestClient { get; set; } = new RestClient();
+
 
         [BeforeScenario]
         public void TestSetup()
         {
-            _settings.BaseUrl = new Uri(ConfigurationManager.AppSettings["baseUrl"].ToString());
-            _settings.RestClient.BaseUrl = _settings.BaseUrl;
+            BaseUrl = new Uri(ConfigurationManager.AppSettings["baseUrl"].ToString());
+            RestClient.BaseUrl = BaseUrl;
+        }
+
+        public static Dictionary<string, string> ToDictionary(Table table)
+        {
+            var dictionary = new Dictionary<string, string>();
+            foreach (var row in table.Rows)
+            {
+                dictionary.Add(row[0], row[1]);
+            }
+            return dictionary;
         }
 
 
